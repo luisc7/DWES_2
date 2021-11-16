@@ -7,10 +7,10 @@ Tenemos una empresa que se dedica a montar eventos. A un evento se inscriben cli
 Cuando un cliente se registra le otorgamos el rol Cliente; pero, para no complicarnos en la parte de los repositorios, vamos a contemplar un solo cliente (a lo sumo dos) y no hará falta que creemos la clase de perfiles ni de usuario_perfiles.
 
 El modelo de datos de este ejercicio es el mismo que el de los anteriores:
-![Modelo de datos del ejercicio](/src/main/webapp/img/ModeloDatos.png)
+![Modelo de datos del ejercicio](src/main/webapp/WEB-INF/img/ModeloDatos.png)
 
 Cuando un cliente registrado entra a la aplicación mediante la URL “/clientes/**” ve esta pantalla, con este menú y con la lista de eventos destacados.
-![Captura de los elementos destacados](/src/main/webapp/img/EventosDestacados.png)
+![Captura de los elementos destacados](src/main/webapp/WEB-INF/img/EventosDestacados.png)
 
 ## Desarrollo
 
@@ -25,7 +25,7 @@ Casos de uso del controlador GestionClientes (URL general: “/clientes”):
   - **Todo correcto, mensaje reserva realizada.**
   - **Problemas al dar de alta, reserva no realizada.**
 
-![Detalle del evento](/src/main/webapp/img/EventoDetalle.png)
+![Detalle del evento](src/main/webapp/WEB-INF/img/EventoDetalle.png)
 
 Nota: añadir el precio unitario en esta vista.
 

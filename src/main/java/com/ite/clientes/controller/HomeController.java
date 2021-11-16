@@ -1,14 +1,14 @@
 package com.ite.clientes.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class HomeController {
 	
-	@GetMapping("/saludo")
+	@GetMapping("/clientes")
 	public String bienvenida() {
-		return "Prueba inicial del HomeController";
+		return "Test HomeController";
 	}
 
 }
