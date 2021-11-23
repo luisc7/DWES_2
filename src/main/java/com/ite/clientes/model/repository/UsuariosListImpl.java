@@ -37,22 +37,29 @@ public class UsuariosListImpl implements IntUsuarioDao{
 
 	@Override
 	public int loginUsuario(String username, String password) {
-		Usuario userAux = new Usuario();
-		userAux.setUsername(username);
-		int pos = listUsuarios.indexOf(userAux);
-		if (pos == -1)
-			// No existe el usuario
-			return -1;
-		else {
-			if (listUsuarios.get(pos).getPassword().equals(password))
-				// El password coincide con el del usuario
-				return 1;
-			else
-				// Password incorrecto
-				return 0;
+		/**
+		 * Devuelve el idUsuario si existe (será < 0)
+		 * 
+		 * Si existe pero el password es incorrecto, devuelve -1
+		 * 
+		 * Si el username no existe, devuelve 0
+		 */
+		int usuarioPass = 0;
+		for (Usuario usr: listUsuarios) {
+			System.out.println(usr.getUsername() + " " + username);
+			if (usr.getUsername().equals(username)) {
+				if (usr.getPassword().equals(password)) {
+					// El password coincide con el del usuario
+					usuarioPass = usr.getIdUsuario();
+					break;
+				} else {
+					// Password incorrecto
+					usuarioPass = -1;
+					break;
+				}
+			}
 		}
-			
-		
+		return usuarioPass;
 	}
 	
 	@Override

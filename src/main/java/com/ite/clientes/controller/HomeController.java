@@ -15,11 +15,10 @@ public class HomeController {
 	@GetMapping("/clientes")
 	public String inicio(Model model) {
 		
-		
-		
-		
-		
-		return "clientes";
+		if (model.getAttribute("usuarioActivo") == null)
+			return "redirect:/clientes/login";
+		else
+			return "redirect:/clientes/destacados";
 	}
 
 }

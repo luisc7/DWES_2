@@ -10,6 +10,7 @@ public interface IntEventoDao {
 	Evento findById(int idEvento);
 	List<Evento> findAll();
 	List<Evento> findActive();
+	List<Evento> findDestacados();
 	int altaEvento(Evento evento);
 	int editarEvento(Evento evento);
 	int eliminarEvento(Evento evento);

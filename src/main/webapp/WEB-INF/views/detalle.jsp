@@ -10,7 +10,7 @@
 </head>
 <body>
 	
-	<h1>Editar evento</h1>
+	<h1>Detalles del evento</h1>
 	<p class="boton"><a href="eventos?opcion=activos">Volver a lista de eventos activos</a></p>
 	<table class="modif">
 		<tr>
@@ -27,24 +27,26 @@
 			<th>Mínimo asistentes</th>
 			<th>Precio (Euros)</th>
 		</tr>
-		<c:forEach var="eleEvento" items="${sessionScope.interEventos.listEvent }">
-			<c:if test = "${eleEvento.idEvento == evento.idEvento}">
+		<!--  
+		<c:forEach var="eleEvento" items="${sessionScope.interEventos.listEvent }"> 
+			<c:if test = "${evento.idEvento == evento.idEvento}"> -->
 				<tr>
-					<td>${eleEvento.idEvento }</td>
-					<td>${eleEvento.idTipo.nombre }</td>
-					<td>${eleEvento.nombre }</td>
-					<td>${eleEvento.descripcion }</td>
-					<td>${eleEvento.fechaInicio }</td>
-					<td>${eleEvento.duracion }</td>
-					<td>${eleEvento.direccion }</td>
-					<td>${eleEvento.estado }</td>
-					<td>${eleEvento.destacado }</td>
-					<td>${eleEvento.aforoMaximo }</td>
-					<td>${eleEvento.minimoAsistencia }</td>
-					<td>${eleEvento.precio }</td>	
-				</tr>		
+					<td>${evento.idEvento }</td>
+					<td>${evento.nombre }</td>
+					<td>${evento.idTipo.nombre }</td>
+					<td>${evento.descripcion }</td>
+					<td>${evento.fechaInicio }</td>
+					<td>${evento.duracion }</td>
+					<td>${evento.direccion }</td>
+					<td>${evento.estado }</td>
+					<td>${evento.destacado }</td>
+					<td>${evento.aforoMaximo }</td>
+					<td>${evento.minimoAsistencia }</td>
+					<td>${evento.precio }</td>	
+				</tr>
+			<!-- 
 			</c:if>
-		</c:forEach>
+		</c:forEach>  -->		
 	</table>
 </body>
 </html>

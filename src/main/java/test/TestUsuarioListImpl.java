@@ -9,13 +9,13 @@ public class TestUsuarioListImpl {
 	
 		IntUsuarioDao listaUsuarios = new UsuariosListImpl();
 		
-		System.out.print("No existe, tiene que dar -1: ");
+		System.out.print("No existe, tiene que dar 0: ");
 		System.out.println(listaUsuarios.loginUsuario("pepe", "calabaza"));
 
-		System.out.print("Existe, tiene que dar 1: ");
+		System.out.print("Existe y contraseña bien, tiene que dar 1: ");
 		System.out.println(listaUsuarios.loginUsuario("Cliente1", "passWrong"));
 
-		System.out.print("Existe pero contraseña mal, tiene que dar 0: ");
+		System.out.print("Existe pero contraseña mal, tiene que dar -1: ");
 		System.out.println(listaUsuarios.loginUsuario("Cliente1", "santoyseña"));
 	
 	}

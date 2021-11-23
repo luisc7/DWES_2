@@ -80,7 +80,23 @@ public class EventoListImpl implements IntEventoDao {
 		 */
 		List<Evento> listActivos = new ArrayList<Evento>();
 		for (Evento event: listEvent) {
-			if (event.getEstado()=="Activo")
+			if (event.getEstado().equals("Activo"))
+				listActivos.add(event);
+		}
+		return listActivos;
+	}
+
+	@Override
+	public List<Evento> findDestacados() {
+		/**
+		 * <pre>Devuelve solo los eventos destacados.</pre>
+		 * 
+		 * @return List<Evento> conteniendo solo aquellos Evento 
+		 * cuyo atributo destacado es "s".
+		 */
+		List<Evento> listActivos = new ArrayList<Evento>();
+		for (Evento event: listEvent) {
+			if (event.getDestacado().equals("s"))
 				listActivos.add(event);
 		}
 		return listActivos;
