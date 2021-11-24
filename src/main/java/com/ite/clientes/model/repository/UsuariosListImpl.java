@@ -13,7 +13,7 @@ public class UsuariosListImpl implements IntUsuarioDao{
 	
 	private List<Usuario> listUsuarios;
 	@SuppressWarnings("unused")
-	private int refNuevoUser;
+	private int refNuevoUser = 1;
 	
 	public UsuariosListImpl() {
 		listUsuarios = new ArrayList<Usuario>();
@@ -22,8 +22,8 @@ public class UsuariosListImpl implements IntUsuarioDao{
 	
 	private void cargaUsuarioDefecto() {
 		listUsuarios.add(new Usuario(1, "Cliente1", "passWrong", "emilio@detrigo.es", "Escuchimizao", "Calle o Hable", 1, new Date()));
-		refNuevoUser = 2;
-	}
+		listUsuarios.add(new Usuario(2, "Cliente2", "pass", "correo@del.dos", "Segundo", "Avenida o ida", 1, new Date()));
+			}
 
 	
 	@Override

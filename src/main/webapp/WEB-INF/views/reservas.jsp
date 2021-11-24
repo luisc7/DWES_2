@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" media="screen" href="style.css"/>
-<title>Eventos</title>
+<title>Reservas</title>
 </head>
 <body>
 
@@ -20,24 +20,22 @@
 			<li><a href="/clientes/cerrarSesion">Salir</a></li>
 		</ul>
 	</nav>
-	<h1>Listado de Eventos Activos</h1>	
-	<div class="boton"><a href=form.jsp>Nuevo evento</a></div>
+	<h1>Listado de Reservas</h1>	
 	<p>Hola ${usuarioActivo.nombre}</p>
-	<table>
-		 
+	<table>		 
 		 <tr>
-			<th class="col1">Nombre</th>
-			<th class="col2">Descripción</th>
-			<th class="col3">Fecha inicio</th>
+			<th class="col1">id Reserva</th>
+			<th class="col2">id Evento</th>
+			<th class="col3">Precio</th>
 						
-			<th class="col5">Opciones</th>
+			<th class="col5">Cantidad</th>
 		</tr>
-		<c:forEach var="eleEvento" items="${eventosActivos}">
+		<c:forEach var="eleReservas" items="${reservasUsuario}">
 			<tr>
-				<td class="col1 filled-col">${eleEvento.nombre}</td>
-				<td class="col3 filled-col">${eleEvento.descripcion}</td>
-				<td class="col3 filled-col">${eleEvento.fechaInicio}</td>
-				<td class="col5 filled-col"><a href="detalle/${eleEvento.idEvento}">Detalles</a></td>
+				<td class="col1 filled-col">${eleReservas.idReserva}</td>
+				<td class="col3 filled-col">${eleReservas.idEvento}</td>
+				<td class="col3 filled-col">${eleReservas.precioVenta}</td>
+				<td class="col5 filled-col">${eleReservas.cantidad}</td>
 			</tr>
 		</c:forEach>
 		

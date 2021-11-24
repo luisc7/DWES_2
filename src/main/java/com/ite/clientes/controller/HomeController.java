@@ -1,5 +1,7 @@
 package com.ite.clientes.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +15,9 @@ public class HomeController {
 	private IntUsuarioDao iclie;
 	
 	@GetMapping("/clientes")
-	public String inicio(Model model) {
+	public String inicio(HttpSession sesionUsuario) {
 		
-		if (model.getAttribute("usuarioActivo") == null)
+		if (sesionUsuario.getAttribute("usuarioActivo") == null)
 			return "redirect:/clientes/login";
 		else
 			return "redirect:/clientes/destacados";

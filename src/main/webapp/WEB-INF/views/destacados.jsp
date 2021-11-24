@@ -9,47 +9,21 @@
 <title>Eventos</title>
 </head>
 <body>
-
+	<p>${mensajeLogin}</p>
 	<nav>
 		<ul>
-			<li><a>Tipos</a></li>
-			<li><a>Eventos</a></li>
-			<li><a>Usuarios</a></li>
-			<li class="active"><a>Eventos/tipo</a></li>
+			<li class="active"><a href=/clientes/destacados>Eventos destacados</a></li>
+			<li><a href=/clientes/activos>Eventos activos</a></li>
+			<li><a href=/clientes/reservas>Reservas</a></li>
 			<li><a>Login</a></li>
 			<li><a>Registro</a></li>
-			<li><a>Salir</a></li>
+			<li><a href="/clientes/cerrarSesion">Salir</a></li>
 		</ul>
 	</nav>
 	<h1>Listado de Eventos Destacados</h1>
 	<div class="boton"><a href=form.jsp>Nuevo evento</a></div>
 	<p>Hola ${usuarioActivo.nombre}</p>
 	<table>
-		<!-- 
-	
-		<tr>
-			<th class="col1">Id</th>
-			<th class="col2">Nombre</th>
-			<th class="col3">Precio</th>
-			
-			<th class="col4 empty-col" id="clear-col"></th>
-			
-			<th class="col5-6-7" colspan="3">Opciones</th>
-		</tr>
-		<c:forEach var="eleEvento" items="${eventosActivos}">
-			<c:if test = "${eleEvento.estado == 'Activo'}">
-				<tr>
-					<td class="col1 filled-col">${eleEvento.idEvento}</td>
-					<td class="col2 filled-col">${eleEvento.nombre}</td>
-					<td class="col3 filled-col">${eleEvento.precio}</td>
-					<td class="col4 empty-col"></td>
-					<td class="col5 filled-col"><a href="eventos?opcion=editar&id=${eleEvento.idEvento}">Detalles</a></td>
-					<td class="col6 filled-col"><a href="eventos?opcion=eliminar&id=${eleEvento.idEvento}">Eliminar</a></td>
-					<td class="col7 filled-col"><a href="eventos?opcion=cancelar&id=${eleEvento.idEvento}">Cancelar</a></td>
-				</tr>
-			</c:if>
-		</c:forEach>
-		 -->
 		 
 		 <tr>
 			<th class="col1">Nombre</th>
@@ -59,14 +33,12 @@
 			<th class="col5">Opciones</th>
 		</tr>
 		<c:forEach var="eleEvento" items="${eventosDestacados}">
-			<!--  c:if test = "${eleEvento.estado == 'Activo'}"-->
 				<tr>
 					<td class="col1 filled-col">${eleEvento.nombre}</td>
 					<td class="col3 filled-col">${eleEvento.descripcion}</td>
 					<td class="col3 filled-col">${eleEvento.fechaInicio}</td>
-					<td class="col5 filled-col"><a href="eventos?opcion=editar&id=${eleEvento.idEvento}">Detalles</a></td>
+					<td class="col5 filled-col"><a href="detalle/${eleEvento.idEvento}">Detalles</a></td>
 				</tr>
-			<!--  /c:if-->
 		</c:forEach>
 		
 	</table>

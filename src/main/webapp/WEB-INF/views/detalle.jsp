@@ -6,12 +6,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" media="screen" href="css/style.css"/>
-<title>Insert title here</title>
+<title>Detalles del evento</title>
 </head>
 <body>
 	
+	<p>Hola ${usuarioActivo.nombre}</p>
 	<h1>Detalles del evento</h1>
-	<p class="boton"><a href="eventos?opcion=activos">Volver a lista de eventos activos</a></p>
+	<p class="boton"><a href="/clientes">Volver a lista de eventos activos</a></p>
 	<table class="modif">
 		<tr>
 			<th>Identificador</th>
@@ -27,26 +28,28 @@
 			<th>Mínimo asistentes</th>
 			<th>Precio (Euros)</th>
 		</tr>
-		<!--  
-		<c:forEach var="eleEvento" items="${sessionScope.interEventos.listEvent }"> 
-			<c:if test = "${evento.idEvento == evento.idEvento}"> -->
-				<tr>
-					<td>${evento.idEvento }</td>
-					<td>${evento.nombre }</td>
-					<td>${evento.idTipo.nombre }</td>
-					<td>${evento.descripcion }</td>
-					<td>${evento.fechaInicio }</td>
-					<td>${evento.duracion }</td>
-					<td>${evento.direccion }</td>
-					<td>${evento.estado }</td>
-					<td>${evento.destacado }</td>
-					<td>${evento.aforoMaximo }</td>
-					<td>${evento.minimoAsistencia }</td>
-					<td>${evento.precio }</td>	
-				</tr>
-			<!-- 
-			</c:if>
-		</c:forEach>  -->		
+
+		<tr>
+			<td>${evento.idEvento}</td>
+			<td>${evento.nombre }</td>
+			<td>${evento.idTipo.nombre }</td>
+			<td>${evento.descripcion }</td>
+			<td>${evento.fechaInicio }</td>
+			<td>${evento.duracion }</td>
+			<td>${evento.direccion }</td>
+			<td>${evento.estado }</td>
+			<td>${evento.destacado }</td>
+			<td>${evento.aforoMaximo }</td>
+			<td>${evento.minimoAsistencia }</td>
+			<td>${evento.precio }</td>	
+		</tr>	
 	</table>
+	<form action="/clientes/reservar/${evento.idEvento}">
+		<label for="cantidad"></label>
+		<input type="number" id="cantidad" name="cantidad" min="1" max="10" step="1"/>
+		<input type="submit" value="Reservar"/>
+	</form>
+	<p>${mensajeReserva}</p>
+	
 </body>
 </html>
