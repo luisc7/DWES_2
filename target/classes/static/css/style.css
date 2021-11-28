@@ -150,6 +150,29 @@ table #clear-col {
     transition: ease 0.2s;
 }
 
+/* tabla detalle */
+
+
+/* Intercambiar filas y columnas de tablas */
+/* basado en: https://stackoverflow.com/questions/23556364/how-to-convert-columns-to-rows-using-css/23556911 */
+/*.modif table tr > *{
+    display: block;
+}
+.modif table tr,
+.modif table thead,
+.modif table tbody {
+    display: table-cell;
+}*/
+
+table.modif tr > *{
+    display: block;
+}
+table.modif tr,
+table.modif thead,
+table.modif tbody {
+    display: table-cell;
+}
+
 /* formulario */
 
 legend {
@@ -185,3 +208,14 @@ form select {
 	margin-bottom: 5px;
 }
 
+/* textos, avisos, etc */
+
+.aviso-rojo {
+	color: red;
+}
+
+/* detalle */
+
+img {
+	max-width: 350px;
+}

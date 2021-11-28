@@ -10,5 +10,5 @@ public interface IntReservaDao {
 	
 	List<Reserva> findReservasUser(Usuario usuario);
 	int nuevaReserva(Usuario usuario, Evento evento, int cantidad, String observaciones);
-
+	int reservasEvento(int idEvento);
 }

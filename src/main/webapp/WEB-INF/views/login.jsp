@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" media="screen" href="css/style.css"/>
+<link rel="stylesheet" media="screen" href="/css/style.css"/>
 <title>Inicio de sesión</title>
 </head>
 <body>
@@ -20,11 +20,13 @@
 		
 		</div>
 		
-	</fieldset>
-	
 	<input class="send-button" type="submit" value="Iniciar sesión" />
+		
+	</fieldset>
 	
 	</form>
 	<p>${mensajeLogin}</p>
+	<p>Usuario1: <b>cliente1</b>   Contraseña: <b>pass1</b></p>
+	<p>Usuario2: <b>cliente2</b>   Contraseña: <b>pass2</b></p>
 </body>
 </html>

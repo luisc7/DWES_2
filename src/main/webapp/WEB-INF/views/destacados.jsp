@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" media="screen" href="style.css"/>
+<link rel="stylesheet" media="screen" href="/css/style.css"/>
 <title>Eventos</title>
 </head>
 <body>
@@ -15,13 +16,11 @@
 			<li class="active"><a href=/clientes/destacados>Eventos destacados</a></li>
 			<li><a href=/clientes/activos>Eventos activos</a></li>
 			<li><a href=/clientes/reservas>Reservas</a></li>
-			<li><a>Login</a></li>
 			<li><a>Registro</a></li>
 			<li><a href="/clientes/cerrarSesion">Salir</a></li>
 		</ul>
 	</nav>
 	<h1>Listado de Eventos Destacados</h1>
-	<div class="boton"><a href=form.jsp>Nuevo evento</a></div>
 	<p>Hola ${usuarioActivo.nombre}</p>
 	<table>
 		 
@@ -36,7 +35,7 @@
 				<tr>
 					<td class="col1 filled-col">${eleEvento.nombre}</td>
 					<td class="col3 filled-col">${eleEvento.descripcion}</td>
-					<td class="col3 filled-col">${eleEvento.fechaInicio}</td>
+					<td class="col3 filled-col"><fmt:formatDate pattern = "dd-MM-yyyy" value = "${eleEvento.fechaInicio}"/></td>
 					<td class="col5 filled-col"><a href="detalle/${eleEvento.idEvento}">Detalles</a></td>
 				</tr>
 		</c:forEach>

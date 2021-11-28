@@ -5,17 +5,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" media="screen" href="style.css"/>
+<link rel="stylesheet" media="screen" href="/css/style.css"/>
 <title>Reservas</title>
 </head>
 <body>
 
 	<nav>
 		<ul>
-			<li class="active"><a href=/clientes/destacados>Eventos destacados</a></li>
+			<li><a href=/clientes/destacados>Eventos destacados</a></li>
 			<li><a href=/clientes/activos>Eventos activos</a></li>
-			<li><a href=/clientes/reservas>Reservas</a></li>
-			<li><a>Login</a></li>
+			<li class="active"><a href=/clientes/reservas>Reservas</a></li>
 			<li><a>Registro</a></li>
 			<li><a href="/clientes/cerrarSesion">Salir</a></li>
 		</ul>

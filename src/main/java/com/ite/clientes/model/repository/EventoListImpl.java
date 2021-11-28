@@ -3,7 +3,6 @@ package com.ite.clientes.model.repository;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -31,13 +30,13 @@ public class EventoListImpl implements IntEventoDao {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		//Date fecha = format.parse("2021-01-02");
 		
-		listEvent.add(new Evento(1, "Evelin y Jaime", "Enlace vespertino", new Date(), 8, "C/Olmo", "Activo", "", 115, 10, 65.7f, itipo.findById(1)) );
-		listEvent.add(new Evento(2, "Jeremiah", "Bautizo almuerzo", format.parse("2021-01-02"), 3, "C/Abeto", "Activo", "s", 50, 12, 32.5f, itipo.findById(2)) );
-		listEvent.add(new Evento(3, "Carlos Alberto", "Comunión almuerzo", new Date(), 3, "C/Pino", "Activo", "", 40, 10, 25.35f, itipo.findById(3)) );
-		listEvent.add(new Evento(4, "Vittorio Casanova", "Despedida madrugada", new Date(), 5, "C/Haya", "Activo", "s", 30, 8, 46.75f, itipo.findById(4)) );
-		listEvent.add(new Evento(5, "Florimond Añejado", "Cumpleaños senior", new Date(), 3, "C/Alamo", "Cancelado", "", 75, 20, 25.5f, itipo.findById(5)) );
-		listEvent.add(new Evento(6, "La Tuna viejuna", "Concierto fin de semana noche", new Date(), 3, "C/Abeto", "Activo", "s", 50, 12, 32.5f, itipo.findById(6)) );
-		listEvent.add(new Evento(7, "Fortunata y Jacinta", "Teatro de media tarde", new Date(), 3, "C/Ciprés", "Cancelado", "s", 250, 50, 42f, itipo.findById(7)) );
+		listEvent.add(new Evento(1, "Rosalinda y Distinguido", "Enlace vespertino", format.parse("2021-12-18"), 8, "C/Olmo", "Activo", "n", 115, 10, 65.7f, itipo.findById(1)) );
+		listEvent.add(new Evento(2, "Pimpollito", "Bautizo almuerzo", format.parse("2021-12-17"), 3, "C/Abeto", "Activo", "s", 50, 12, 32.5f, itipo.findById(2)) );
+		listEvent.add(new Evento(3, "Carlos Alberto", "Comunión almuerzo", format.parse("2021-12-16"), 3, "C/Pino", "Activo", "n", 40, 10, 25.35f, itipo.findById(3)) );
+		listEvent.add(new Evento(4, "Alegre Casanova", "Despedida madrugada", format.parse("2021-12-15"), 5, "C/Haya", "Activo", "s", 30, 8, 46.75f, itipo.findById(4)) );
+		listEvent.add(new Evento(5, "Baldomero Provecto", "Cumpleaños senior", format.parse("2021-12-14"), 3, "C/Alamo", "Cancelado", "n", 75, 20, 25.5f, itipo.findById(5)) );
+		listEvent.add(new Evento(6, "La Tuna viejuna", "Concierto fin de semana noche", format.parse("2021-12-13"), 3, "C/Abeto", "Activo", "s", 50, 12, 32.5f, itipo.findById(6)) );
+		listEvent.add(new Evento(7, "Fortunata y Jacinta", "Teatro de media tarde", format.parse("2021-12-12"), 3, "C/Ciprés", "Cancelado", "s", 250, 50, 42f, itipo.findById(7)) );
 		referenciaNuevoEvento = 8;		
 	}
 
