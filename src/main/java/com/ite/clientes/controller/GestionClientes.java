@@ -30,6 +30,9 @@ public class GestionClientes {
 	@Autowired
 	private IntUsuarioDao listaUsuarios = new UsuariosListImpl();
 	
+	@Autowired
+	private IntReservaDao listaReservas = new ReservasListImpl();
+	
 	
 	@GetMapping("/login")
 	public String login(Model model) {
@@ -59,8 +62,7 @@ public class GestionClientes {
 			attr.addFlashAttribute("mensajeLogin", "Inicio de sesión correcto");
 			attr.addFlashAttribute("eventosDestacados", ievent.findDestacados());			
 			sesionUsuario.setAttribute("usuarioActivo", usuarioActivo);
-			IntReservaDao reservas = new ReservasListImpl();
-			sesionUsuario.setAttribute("listaReservas", reservas);
+			sesionUsuario.setAttribute("listaReservas", listaReservas.findReservasUser(usuarioActivo));
 			return "redirect:/clientes/destacados";
 			
 		} else if (idUsuarioActivo == 0) {
@@ -144,8 +146,7 @@ public class GestionClientes {
 		 */
 		
 		Evento evento = ievent.findById(idEvento);
-		IntReservaDao reservas = (IntReservaDao) sesionUsuario.getAttribute("listaReservas");
-		int cantidadReservada = reservas.reservasEvento(idEvento);
+		int cantidadReservada = listaReservas.reservasEvento(idEvento);
 		model.addAttribute("evento", evento);
 		model.addAttribute("cantidadDisponible", (evento.getAforoMaximo()-cantidadReservada));
 		return "detalle";
@@ -178,12 +179,14 @@ public class GestionClientes {
 		 */
 		
 		Evento evento = ievent.findById(idEvento);
-		IntReservaDao reservas = (IntReservaDao) sesionUsuario.getAttribute("listaReservas");
+		int cantidadReservada = listaReservas.reservasEvento(idEvento);
 		if (cantidad > 10)
 			// Aquí no debería entrar "nunca" por el formulario, 
 			// no obstante lo limitamos por si se accediera modificando la URL
 			attr.addFlashAttribute("mensajeReserva", "Reserva NO realizada: Ha indicado más de 10 plazas en la reserva");
-		else if (reservas.nuevaReserva((Usuario)sesionUsuario.getAttribute("usuarioActivo"), evento, cantidad, "") == 1)
+		else if ((evento.getAforoMaximo()-cantidadReservada-cantidad) < 0)
+			attr.addFlashAttribute("mensajeReserva", "Reserva NO realizada: Ha indicado más plazas en la reserva de las disponibles");
+		else if (listaReservas.nuevaReserva((Usuario)sesionUsuario.getAttribute("usuarioActivo"), evento, cantidad, "") == 1)
 			attr.addFlashAttribute("mensajeReserva", "Reserva realizada");
 		else
 			attr.addFlashAttribute("mensajeReserva", "Reserva NO realizada");
@@ -203,9 +206,8 @@ public class GestionClientes {
 		 * No obstante solo he utilizado los id de eventos y de reserva
 		 * para hacerlo fácil, puesto que era una comprobación simplemente
 		 */
-		
-		IntReservaDao reservas = (IntReservaDao) sesionUsuario.getAttribute("listaReservas");
-		model.addAttribute("reservasUsuario", reservas.findReservasUser((Usuario)sesionUsuario.getAttribute("usuarioActivo")));
+				
+		model.addAttribute("reservasUsuario", listaReservas.findReservasUser((Usuario)sesionUsuario.getAttribute("usuarioActivo")));
 		return "reservas";
 	}
 
